@@ -12,7 +12,7 @@ const NewsData = ({ search }) => {
       const response = await fetch(
         `https://newsapi.org/v2/top-headlines?q=${search}&apiKey=37798908ced74fde96503f97764d1d31`
       );
-      console.log(response);
+
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
