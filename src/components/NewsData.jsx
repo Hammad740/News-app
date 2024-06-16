@@ -20,7 +20,7 @@ const NewsData = ({ search }) => {
         setIsLoading(false);
         setNews(data.articles);
       } catch (error) {
-        console.error('Error:', error.message);
+        console.error('Error:', error);
       }
     };
 
