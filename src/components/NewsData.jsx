@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const defaultImage =
   'https://c0.wallpaperflare.com/preview/105/94/569/administration-articles-bank-black-and-white.jpg';
@@ -7,23 +7,22 @@ const NewsData = ({ search }) => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const getNews = async (search) => {
-      try {
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?q=${search}&apiKey=37798908ced74fde96503f97764d1d31`
-        );
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setIsLoading(false);
-        setNews(data.articles);
-      } catch (error) {
-        console.error('Error:', error);
+  const getNews = async (search) => {
+    try {
+      const response = await fetch(
+        `https://newsapi.org/v2/top-headlines?q=${search}&apiKey=37798908ced74fde96503f97764d1d31`
+      );
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    };
-
+      const data = await response.json();
+      setIsLoading(false);
+      setNews(data.articles);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  useEffect(() => {
     getNews(search); // Call getNews inside useEffect
   }, [search]); // Dependency on 'search' to fetch news when it changes
 
