@@ -1,4 +1,10 @@
-const Hero = () => {
+import { useState } from 'react';
+
+const Hero = ({ setSearch }) => {
+  const [name, setName] = useState('');
+  const searchNews = () => {
+    setSearch(name);
+  };
   return (
     <div>
       <header>
@@ -10,8 +16,11 @@ const Hero = () => {
               type="text"
               placeholder="Enter text..."
               className="input-bar"
+              onChange={(e) => setName(e.target.value)}
             />
-            <button className="hero-btn">Search</button>
+            <button className="hero-btn" onClick={searchNews}>
+              Search
+            </button>
           </div>
         </div>
       </header>

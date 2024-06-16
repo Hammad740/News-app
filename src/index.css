@@ -66,3 +66,44 @@
   color: black;
   transform: scale(1.02);
 }
+
+.news {
+  margin: 10px 0;
+}
+.row {
+  margin: 10px;
+}
+.card {
+  height: 480px;
+}
+
+.card img {
+  height: 240px;
+  object-fit: cover;
+}
+
+.card-text {
+  font-size: 12px;
+  max-width: 350px;
+  margin: 10px auto;
+}
+.card-title {
+  font-weight: 600;
+}
+.card a {
+  margin: 3px;
+}
+.news-column {
+  padding: 3% 2%;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.category ul li {
+  list-style: none;
+  margin: 10px 0;
+}
